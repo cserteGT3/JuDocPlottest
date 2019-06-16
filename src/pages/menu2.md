@@ -12,7 +12,7 @@ scatter(d[:,1],d[:,2]) #hide
 savefig(joinpath(@__DIR__, "plot.png")) #hide
 println("The average is:", mean(d[:,2])) #hide
 ```
-![the plot](/assets/oldfaithful/plot.png)
+![the plot](/assets/temperature/plot.png)
 
 The "output" is also shown as code (which is fine, but not what I want)
 \output{temperature/plt}
@@ -20,3 +20,5 @@ The "output" is also shown as code (which is fine, but not what I want)
 ## Usage
 
 After updating and pushing `temps.tsv`, I can use `publish()`, and the page is updated.
+This behaviour is fine for me, the things that I'd like to change is: inlined code should not be present if there's nothing to show and I'd like to see the "average text" as plain text, not code output.
+I assume that these can be solved with Literate.

@@ -1,3 +1,4 @@
 [deps]
 JuDoc = "4ca9428c-4c75-11e9-2efb-bf5cb6c1e8f8"
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"

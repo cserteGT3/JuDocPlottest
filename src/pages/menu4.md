@@ -1,3 +1,5 @@
-@def title = "Weave"
+## This doesn't work
 
-# TBD
+```julia
+weave("assets\\weave\\fir.jl", out_path=joinpath(pwd(), "src/pages/menu4.md"), doctype = "github")
+```

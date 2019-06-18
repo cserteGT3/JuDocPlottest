@@ -171,17 +171,17 @@ uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.20.0"
 
 [[JuDoc]]
-deps = ["Dates", "DocStringExtensions", "JuDocTemplates", "LiveServer", "Markdown", "Test"]
-git-tree-sha1 = "f8e8d467ad0372bf2e7922fbaa1cf63e72568a14"
+deps = ["Dates", "DocStringExtensions", "JuDocTemplates", "LiveServer", "Markdown", "Pkg", "Test"]
+git-tree-sha1 = "d30a49f076a812a73cfb95106a94e2c4d7a642c0"
 repo-rev = "master"
 repo-url = "https://github.com/tlienart/JuDoc.jl.git"
 uuid = "4ca9428c-4c75-11e9-2efb-bf5cb6c1e8f8"
 version = "0.1.3"
 
 [[JuDocTemplates]]
-git-tree-sha1 = "01d2ba7f7ec352c39a5c38deb71443c76e3490dd"
+git-tree-sha1 = "ea8214080e25cd0b5178568f7be7f827b3ce2aa5"
 uuid = "6793090a-55ae-11e9-0511-73b91164f4ea"
-version = "0.2.1"
+version = "0.2.2"
 
 [[LaTeXStrings]]
 deps = ["Compat"]
@@ -391,9 +391,9 @@ version = "1.0.0"
 
 [[Tables]]
 deps = ["IteratorInterfaceExtensions", "LinearAlgebra", "Requires", "TableTraits", "Test"]
-git-tree-sha1 = "351a4b894122e1553c6ed05fda54086ab036adef"
+git-tree-sha1 = "c328ce4519e2c1ec7368e6ce98a5f916ecf230a8"
 uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-version = "0.2.5"
+version = "0.2.6"
 
 [[Test]]
 deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]

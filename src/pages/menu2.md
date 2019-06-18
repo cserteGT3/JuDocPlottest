@@ -20,7 +20,9 @@ The "output" is also shown as code (which is fine, but not what I want)
 ## Usage
 
 After updating and pushing `temps.tsv`, I can use `publish()`, and the page is updated.
-This behaviour is fine for me, the things that I'd like to change is: inlined code should not be present if there's nothing to show and I'd like to see the "average text" as plain text, not code output.
+This behaviour is fine for me, the things that I'd like to change is:
+* inlined code should not be present if there's nothing to show
+* I'd like to see the "average text" as plain text, not code output.
 I assume that these can be solved with Literate.
 
 ## Solution for output

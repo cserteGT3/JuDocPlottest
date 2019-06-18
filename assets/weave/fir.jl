@@ -22,5 +22,5 @@ println("Mean temperature: ", mean(d[:,2]), " °C")
 
 #' 1. `cleanall()`
 #' 2. updating and pushing the `.tsv` file
-#' 3. running this file: `include("assets\\weave\\runweave0.jl")`
+#' 3. running this file: `include("assets\\weave\\runweave.jl")`
 #' 8. `publish()`

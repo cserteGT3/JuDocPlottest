@@ -1,7 +1,5 @@
 [deps]
-DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
 JuDoc = "4ca9428c-4c75-11e9-2efb-bf5cb6c1e8f8"
 Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
-Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"

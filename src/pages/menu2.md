@@ -9,21 +9,22 @@ using PyPlot, DelimitedFiles, Statistics #hide
 d, h = readdlm(joinpath(@__DIR__, "temps.tsv"), '\t', header = true) #hide
 figure() #hide
 scatter(d[:,1],d[:,2]) #hide
-savefig(joinpath(@__DIR__, "plot.png")) #hide
+savefig(joinpath(@__DIR__, "plot_judoc.png")) #hide
 println("The average is:", mean(d[:,2])) #hide
 ```
-![the plot](/assets/temperature/plot.png)
+![the plot](/assets/temperature/plot_judoc.png)
 
 The "output" is also shown as code (which is fine, but not what I want)
 \output{temperature/plt}
 
 ## Usage
 
-After updating and pushing `temps.tsv`, I can use `publish()`, and the page is updated.
+1. updating and pushing `temps.tsv`
+2. `publish()`
+
 This behaviour is fine for me, the things that I'd like to change is:
 * inlined code should not be present if there's nothing to show
 * I'd like to see the "average text" as plain text, not code output.
-I assume that these can be solved with Literate.
 
 ## Solution for output
 

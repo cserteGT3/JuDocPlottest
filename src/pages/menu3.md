@@ -1,34 +1,20 @@
 @def title = "Menu 3 with Literate.jl"
 @def hascode = true
 
-## Literate.jls
-I can run this page with:
+## Literate.jl
 
-```julia
-shell> cd \assets\literate
+## The usual code:
 
-julia> include("fotw.jl")
-```
+![the plot2](/assets/literate/plot_lit.png)
 
-Here's the code:
+Mean temperature: 15.5 °C
 
-Here's the `example.jl` from Literate's docs:
+## Usage
 
-```julia
-using Plots
-gr()
-x = range(0, stop=6π, length=1000)
-y1 = sin.(x)
-y2 = cos.(x)
-f = Plots.plot(x, [y1, y2])
-Plots.savefig(f, joinpath(@__DIR__, "plot2.png"))
-```
-
-this doesn't really want to work out :/
-
-```julia
-![the plot2](/assets/literate/plot2.png)
-```
+1. `cleanall()`
+2. updating and pushing the `.tsv` file
+3. running this file: `include("assets\\literate\\fotw.jl")`
+8. `publish()`
 
 *This page was generated using [Literate.jl](https://github.com/fredrikekre/Literate.jl).*
 

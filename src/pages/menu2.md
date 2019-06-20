@@ -2,7 +2,7 @@
 
 # My attempt with pure JuDoc
 
-This leaves a small inlined code part:
+This leaves a small inlined code part (which is fixed now on `#master`):
 
 ```julia:temperature/plt
 using PyPlot, DelimitedFiles, Statistics #hide
@@ -12,6 +12,7 @@ scatter(d[:,1],d[:,2]) #hide
 savefig(joinpath(@__DIR__, "plot_judoc.png")) #hide
 println("The average is:", mean(d[:,2])) #hide
 ```
+
 ![the plot](/assets/temperature/plot_judoc.png)
 
 The "output" is also shown as code (which is fine, but not what I want)
@@ -23,23 +24,26 @@ The "output" is also shown as code (which is fine, but not what I want)
 2. `publish()`
 
 This behaviour is fine for me, the things that I'd like to change is:
-* inlined code should not be present if there's nothing to show
-* I'd like to see the "average text" as plain text, not code output.
+* inlined code should not be present if there's nothing to show - **solved**
+* I'd like to see the "average text" as plain text, not code output. - **solved**
 
-## Solution for output
+# Corrected way to do it
 
-OK, none of this works:
-```
-\input{assests/temperature/output/plt.jl}
-```
-or
+This update based on [issue (comment)](https://github.com/tlienart/JuDoc.jl/issues/182#issuecomment-503973974)
 
+```julia:temperature/plt2
+# hideall
+using PyPlot, DelimitedFiles, Statistics
+d, h = readdlm(joinpath(@__DIR__, "temps.tsv"), '\t', header = true)
+figure()
+scatter(d[:,1],d[:,2])
+savefig(joinpath(@__DIR__, "plot_judoc2.png"))
+println("The average is:", mean(d[:,2]))
 ```
-\input{output}{assests/temperature/output/plt.out}
-```
+Next line should be the average line:
 
-or
+\textoutput{temperature/plt2}
 
-```
-\input{output}{assests/temperature/output/plt.jl}
-```
+And the plot:
+
+\fig{temperature/plot_judoc2.png}

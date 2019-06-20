@@ -124,7 +124,7 @@ version = "0.20.0"
 
 [[JuDoc]]
 deps = ["Dates", "DocStringExtensions", "JuDocTemplates", "LiveServer", "Markdown", "Pkg", "Test"]
-git-tree-sha1 = "d30a49f076a812a73cfb95106a94e2c4d7a642c0"
+git-tree-sha1 = "775e929616d2ade577410d1156ecbbdf75e7bb33"
 repo-rev = "master"
 repo-url = "https://github.com/tlienart/JuDoc.jl.git"
 uuid = "4ca9428c-4c75-11e9-2efb-bf5cb6c1e8f8"

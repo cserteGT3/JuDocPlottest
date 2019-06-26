@@ -5,7 +5,7 @@
 
 ## The usual code:
 
-![the plot2](/assets/literate/plot_lit.png)
+![literate plot](/assets/literate/plot_lit.png)
 
 Mean temperature: 15.5 °C
 

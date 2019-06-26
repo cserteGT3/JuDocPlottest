@@ -12,7 +12,7 @@
 
 
 
-![the plot2](/assets/weave/plot_wew.png)
+![weave plot](/assets/weave/plot_wew.png)
 
 Mean temperature: 15.5 °C
 

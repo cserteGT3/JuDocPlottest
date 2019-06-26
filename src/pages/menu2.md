@@ -46,4 +46,4 @@ Next line should be the average line:
 
 And the plot:
 
-\fig{temperature/plot_judoc2.png}
+\figalt{On the JuDoc site.}{temperature/plot_judoc2.png}

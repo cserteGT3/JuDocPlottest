@@ -1,7 +1,27 @@
 @def title = "pure JuDoc"
 
-# My attempt with pure JuDoc
+## Pure JuDoc
 
+## The usual code:
+
+```julia:temperature/plt2
+# hideall
+using PyPlot, DelimitedFiles, Statistics
+d, h = readdlm(joinpath(@__DIR__, "temps.tsv"), '\t', header = true)
+figure()
+scatter(d[:,1],d[:,2])
+savefig(joinpath(@__DIR__, "plot_judoc2.png"))
+println("Mean temperature: ", mean(d[:,2]), " °C")
+```
+
+\figalt{On the JuDoc site}{temperature/plot_judoc2.png}
+
+
+\textoutput{temperature/plt2}
+
+## My attempt with pure JuDoc
+
+Updated code is above based on [issue (comment)](https://github.com/tlienart/JuDoc.jl/issues/182#issuecomment-503973974).
 This leaves a small inlined code part (which is fixed now on `#master`):
 
 ```julia:temperature/plt
@@ -26,24 +46,3 @@ The "output" is also shown as code (which is fine, but not what I want)
 This behaviour is fine for me, the things that I'd like to change is:
 * inlined code should not be present if there's nothing to show - **solved**
 * I'd like to see the "average text" as plain text, not code output. - **solved**
-
-# Corrected way to do it
-
-This update based on [issue (comment)](https://github.com/tlienart/JuDoc.jl/issues/182#issuecomment-503973974)
-
-```julia:temperature/plt2
-# hideall
-using PyPlot, DelimitedFiles, Statistics
-d, h = readdlm(joinpath(@__DIR__, "temps.tsv"), '\t', header = true)
-figure()
-scatter(d[:,1],d[:,2])
-savefig(joinpath(@__DIR__, "plot_judoc2.png"))
-println("The average is:", mean(d[:,2]))
-```
-Next line should be the average line:
-
-\textoutput{temperature/plt2}
-
-And the plot:
-
-\figalt{On the JuDoc site.}{temperature/plot_judoc2.png}

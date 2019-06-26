@@ -12,7 +12,7 @@ d, h = readdlm(joinpath(dirname(@__DIR__), "temperature", "temps.tsv"), '\t', he
 figure() #src
 scatter(d[:,1],d[:,2]) #src
 savefig(joinpath(dirname(@__DIR__), "literate", "plot_lit.png")) #src
-# ![the plot2](/assets/literate/plot_lit.png)
+# ![literate plot](/assets/literate/plot_lit.png)
 
 # Mean temperature: MEANTEMP °C
 

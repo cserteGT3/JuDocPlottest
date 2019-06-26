@@ -13,7 +13,7 @@ figure()
 scatter(d[:,1],d[:,2])
 savefig(joinpath(@__DIR__,"assets","weave", "plot_wew.png"))
 
-#' ![the plot2](/assets/weave/plot_wew.png)
+#' ![weave plot](/assets/weave/plot_wew.png)
 
 #+ echo=false; eval=true; results="rst"
 println("Mean temperature: ", mean(d[:,2]), " °C")

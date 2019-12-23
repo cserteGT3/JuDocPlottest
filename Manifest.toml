@@ -246,6 +246,12 @@ git-tree-sha1 = "350ac618f41958e6e0f6b0d2005ae4547eb1b503"
 uuid = "2bd173c7-0d6d-553b-b6af-13a54713934c"
 version = "1.1.1"
 
+[[ORCA]]
+deps = ["Conda", "HTTP", "JSON", "PlotlyBase"]
+git-tree-sha1 = "b4388659d0dfaa4579c3e6ff72b3f6e706019440"
+uuid = "47be7bcc-f1a6-5447-8b36-7eeeff7534fd"
+version = "0.3.1"
+
 [[Observables]]
 deps = ["Test"]
 git-tree-sha1 = "dc02cec22747d1d10d9f70d8a1c03432b5bfbcd0"

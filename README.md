@@ -79,3 +79,8 @@ julia> serve()
 ✓ LiveServer listening on http://localhost:8000/ ...
   (use CTRL+C to shut down)
 ```
+
+As noted [here](https://tlienart.github.io/JuDoc.jl/dev/man/workflow/#Hosting-the-website-as-a-project-website-1), one must use:
+```
+publish(prepath="JuDocPlottest")
+```

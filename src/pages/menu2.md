@@ -25,12 +25,14 @@ Updated code is above based on [issue (comment)](https://github.com/tlienart/JuD
 This leaves a small inlined code part (which is fixed now on `#master`):
 
 ```julia:temperature/plt
-using PyPlot, DelimitedFiles, Statistics #hide
-d, h = readdlm(joinpath(@__DIR__, "temps.tsv"), '\t', header = true) #hide
-figure() #hide
-scatter(d[:,1],d[:,2]) #hide
-savefig(joinpath(@__DIR__, "plot_judoc.png")) #hide
-println("The average is:", mean(d[:,2])) #hide
+#hideall
+using PyPlot, DelimitedFiles, Statistics
+fp = joinpath("assets", "temperature", "temps.tv")
+d, h = readdlm(abspath(fp), '\t', header = true)
+figure()
+scatter(d[:,1],d[:,2])
+savefig(joinpath(@__DIR__, "plot_judoc.png"))
+println("The average is:", mean(d[:,2]))
 ```
 
 ![the plot](/assets/temperature/plot_judoc.png)

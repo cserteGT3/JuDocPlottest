@@ -1,30 +1,69 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>Working with PlotyJS</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=judoc_plotlyjs ><a href="/JuDocPlottest/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS, DelimitedFiles, Statistics, ORCA
-fp = joinpath(<span class=hljs-string >"assets"</span>, <span class=hljs-string >"temperature"</span>, <span class=hljs-string >"temps.tsv"</span>)
-d, h = readdlm(abspath(fp), '\t', header = <span class=hljs-literal >true</span>)
-sc = scatter(;x=d[:,<span class=hljs-number >1</span>], y=d[:,<span class=hljs-number >2</span>], mode=<span class=hljs-string >"markers"</span>)
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Un-minified script so that can play a bit -->
+<link rel="stylesheet" href="/libs/katex/katex.min.css">
+     
+  
+  <link rel="stylesheet" href="/css/judoc.css">
+  <link rel="stylesheet" href="/css/basic.css">
+  <link rel="icon" href="/assets/infra/favicon.png">
+   <title>Working with PlotyJS</title>  
+</head>
+<body>
+  <header>
+    <div class="blog-name"><a href="">Basic Template</a></div>
+    <nav>
+      <ul>
+        <li><a href="/">Discourse thread</a></li>
+        <li><a href="/pub/menu2.html">pure JuDoc</a></li>
+        <li><a href="/pub/menu3.html">Literate</a></li>
+        <li><a href="/pub/menu4.html">Weave</a></li>
+        <li><a href="/pub/menu5.html">Weave2</a></li>
+        <li><a href="/pub/menu6.html">Weave3</a></li>
+        <li><a href="/pub/menu7.html">PlotlyJS</a></li>
+      </ul>
+      <img src="/assets/infra/hamburger.svg" id="menu-icon">
+    </nav>
+  </header>
+
+<!-- Content appended here -->
+
+<div class="jd-content">
+<h2 id="judoc_plotlyjs"><a href="/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2>
+<pre><code class="language-julia">using PlotlyJS, DelimitedFiles, Statistics, ORCA
+fp = joinpath("assets", "temperature", "temps.tsv")
+d, h = readdlm(abspath(fp), '\t', header = true)
+sc = scatter(;x=d[:,1], y=d[:,2], mode="markers")
 p = plot(sc)
-savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"plotly1.html"</span>), format=<span class=hljs-string >"html"</span>)
-savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"plotly1.png"</span>), format=<span class=hljs-string >"png"</span>)
-savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"output"</span>, <span class=hljs-string >"t2.out"</span>), format=<span class=hljs-string >"html"</span>)
-println(<span class=hljs-string >"The average is:"</span>, mean(d[:,<span class=hljs-number >2</span>]))</code></pre> <p>png plot</p> <pre><code class="julia hljs">\figalt{new plot3}{./test/plotly1.png}</code></pre>
-<img src="/JuDocPlottest/assets/pages/menu7/test/plotly1.png" alt="new plot3">
+savefig(p, joinpath(@__DIR__, "plotly1.html"), format="html")
+savefig(p, joinpath(@__DIR__, "plotly1.png"), format="png")
+savefig(p, joinpath(@__DIR__, "output", "t2.out"), format="html")
+println("The average is:", mean(d[:,2]))</code></pre>
+<p>png plot</p>
+<pre><code class="language-julia">\figalt{new plot3}{./test/plotly1.png}</code></pre>
+<img src="/assets/pages/menu7/test/plotly1.png" alt="new plot3">
 <p>html2:</p>
-<a href="/JuDocPlottest/assets/pages/menu7/test/plotly1.html">plot2</a>
-<pre><code class="plaintext hljs">The average is:13.4
+<a href="/assets/pages/menu7/test/plotly1.html">plot2</a>
+<pre><code class="plaintext">The average is:13.4
 </code></pre>
-<div class=page-foot >
-  <div class=copyright >
+<div class="page-foot">
+  <div class="copyright">
     &copy; Tamás Cserteg. Last modified: December 23, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
   </div>
 </div>
 
 </div>
+<!-- CONTENT ENDS HERE -->
+    
+        <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
 
     
-        
-
-
-
     
-    
-    <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script>
+    <script src="/libs/plotlyjs/plotly-latest.min.js"></script>
+  </body>
+</html>

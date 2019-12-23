@@ -1,80 +1,36 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- Un-minified script so that can play a bit -->
-<link rel="stylesheet" href="/libs/katex/katex.min.css">
-     
-   <!-- Syntax highlighting via Prism, note: restricted langs -->
-<link rel="stylesheet" href="/libs/highlight/github.min.css">
-   
-  <link rel="stylesheet" href="/css/judoc.css">
-  <link rel="stylesheet" href="/css/basic.css">
-  <link rel="icon" href="/assets/infra/favicon.png">
-   <title>JuDoc Example</title>  
-</head>
-<body>
-  <header>
-    <div class="blog-name"><a href="">Basic Template</a></div>
-    <nav>
-      <ul>
-        <li><a href="/">Discourse thread</a></li>
-        <li><a href="/pub/menu2.html">pure JuDoc</a></li>
-        <li><a href="/pub/menu3.html">Literate</a></li>
-        <li><a href="/pub/menu4.html">Weave</a></li>
-        <li><a href="/pub/menu5.html">Weave2</a></li>
-        <li><a href="/pub/menu6.html">Weave3</a></li>
-        <li><a href="/pub/menu7.html">PlotlyJS</a></li>
-      </ul>
-      <img src="/assets/infra/hamburger.svg" id="menu-icon">
-    </nav>
-  </header>
-
-<!-- Content appended here -->
-
-<div class="jd-content">
-<h1 id="discourse_thread"><a href="/index.html#discourse_thread">Discourse thread</a></h1>
-<p><a href="https://discourse.julialang.org/t/ann-judoc-jl-a-static-site-generator-in-julia/23693/14">link</a></p>
-<p>Note: I could not find the &quot;old faithful&quot; dataset, so I used what I&#39;ve found.</p>
-<p>Answer: This would be in the markdown describing the page, the code below will be displayed and executed:</p>
-<pre><code class="language-julia">using PyPlot, DelimitedFiles
-d, h = readdlm(joinpath(@__DIR__, "data.dat"), ',', header = true)
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <link rel=stylesheet  href="/JuDocPlottest/libs/highlight/github.min.css"> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>JuDoc Example</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h1 id=discourse_thread ><a href="/JuDocPlottest/index.html#discourse_thread">Discourse thread</a></h1> <p><a href="https://discourse.julialang.org/t/ann-judoc-jl-a-static-site-generator-in-julia/23693/14">link</a></p> <p>Note: I could not find the &quot;old faithful&quot; dataset, so I used what I&#39;ve found.</p> <p>Answer: This would be in the markdown describing the page, the code below will be displayed and executed:</p> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PyPlot, DelimitedFiles
+d, h = readdlm(joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"data.dat"</span>), <span class=hljs-string >','</span>, header = <span class=hljs-literal >true</span>)
 figure()
-scatter(d[:,1], d[:,2])
-savefig(joinpath(@__DIR__, "plot.png"))</code></pre>
-<p><img src="/assets/oldfaithful/plot.png" alt="the plot" /></p>
-<p>I consider this as a fix dataset, e.i. it is once saved and stays the same &quot;forever&quot;.</p>
-<h2 id="how_to_use_this_repo"><a href="/index.html#how_to_use_this_repo">How to use this repo?</a></h2>
-<p>Run the followings &#40;tested only on Windows&#41;: <pre><code class="language-bash">C:\Users\cstamas\Documents\GIT\JuDocPlottest>julia
+scatter(d[:,<span class=hljs-number >1</span>], d[:,<span class=hljs-number >2</span>])
+savefig(joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"plot.png"</span>))</code></pre> <p><img src="/JuDocPlottest/assets/oldfaithful/plot.png" alt="the plot" /></p> <p>I consider this as a fix dataset, e.i. it is once saved and stays the same &quot;forever&quot;.</p> <h2 id=how_to_use_this_repo ><a href="/JuDocPlottest/index.html#how_to_use_this_repo">How to use this repo?</a></h2> <p>Run the followings &#40;tested only on Windows&#41;: <pre><code class="bash hljs">C:\Users\cstamas\Documents\GIT\JuDocPlottest&gt;julia
                _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
   (_)     | (_) (_)    |
-   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+   _ _   _| |_  __ _   |  Type <span class=hljs-string >"?"</span> <span class=hljs-keyword >for</span> <span class=hljs-built_in >help</span>, <span class=hljs-string >"]?"</span> <span class=hljs-keyword >for</span> Pkg <span class=hljs-built_in >help</span>.
   | | | | | | |/ _` |  |
   | | |_| | | | (_| |  |  Version 1.1.1 (2019-05-16)
- _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+ _/ |\__<span class=hljs-string >'_|_|_|\__'</span>_|  |  Official https://julialang.org/ release
 |__/                   |
 
-(v1.1) pkg> activate .
+(v1.1) pkg&gt; activate .
 
-(JuDocPlottest) pkg> instantiate
+(JuDocPlottest) pkg&gt; instantiate
   Updating registry at `C:\Users\cstamas\.julia\registries\General`
   Updating git-repo `https://github.com/JuliaRegistries/General.git`
 
-julia> using JuDoc
+julia&gt; using JuDoc
 
-julia> cleanpull()
-→ Removing local output dir...      [done ✔ ]
-→ Retrieving updates from the repository... [done ✔ ]
+julia&gt; cleanpull()
+→ Removing <span class=hljs-built_in >local</span> output dir...      [<span class=hljs-keyword >done</span> ✔ ]
+→ Retrieving updates from the repository... [<span class=hljs-keyword >done</span> ✔ ]
 
-julia> include("assets\\literate\\fotw.jl")
+julia&gt; include(<span class=hljs-string >"assets\\literate\\fotw.jl"</span>)
 [ Info: generating markdown page from `C:\Users\cstamas\Documents\GIT\JuDocPlottest\assets\literate\fotw.jl`
 [ Info: not running on Travis, skipping links will not be correct.
 [ Info: writing result to `C:\Users\cstamas\Documents\GIT\JuDocPlottest\src\pages\menu3.md`
-"C:\\Users\\cstamas\\Documents\\GIT\\JuDocPlottest\\src\\pages\\menu3.md"
+<span class=hljs-string >"C:\\Users\\cstamas\\Documents\\GIT\\JuDocPlottest\\src\\pages\\menu3.md"</span>
 
-julia> include("assets\\weave\\runweave.jl")
+julia&gt; include(<span class=hljs-string >"assets\\weave\\runweave.jl"</span>)
 [ Info: Weaving chunk 1 from line 9
 [ Info: Weaving chunk 2 from line 18
 [ Info: Weaving chunk 3 from line 27
@@ -83,32 +39,10 @@ julia> include("assets\\weave\\runweave.jl")
 [ Info: Weaving chunk 2 from line 18
 [ Info: Weaving chunk 3 from line 27
 [ Info: Report weaved to C:\Users\cstamas\Documents\GIT\JuDocPlottest\src/pages/menu6.md
-"C:\\Users\\cstamas\\Documents\\GIT\\JuDocPlottest\\src\\pages\\menu6.md"
+<span class=hljs-string >"C:\\Users\\cstamas\\Documents\\GIT\\JuDocPlottest\\src\\pages\\menu6.md"</span>
 
-julia> serve()
+julia&gt; serve()
 → Initial full pass...
 → Starting the server...
 ✓ LiveServer listening on http://localhost:8000/ ...
-  (use CTRL+C to shut down)</code></pre>
-<div class="page-foot">
-  <div class="copyright">
-    &copy; Tamás Cserteg. Last modified: June 23, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
-  </div>
-</div>
-
-</div>
-<!-- CONTENT ENDS HERE -->
-    
-        <script src="/libs/katex/katex.min.js"></script>
-<script src="/libs/katex/auto-render.min.js"></script>
-<script>renderMathInElement(document.body)</script>
-
-    
-    
-        <script src="/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
-
-    
-    <script src="/libs/plotlyjs/plotly-latest.min.js"></script>
-  </body>
-</html>
+  (use CTRL+C to shut down)</code></pre> <div class=page-foot > <div class=copyright > &copy; Tamás Cserteg. Last modified: June 23, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>. </div> </div> </div> <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script>

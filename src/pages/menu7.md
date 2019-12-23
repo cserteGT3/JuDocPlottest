@@ -24,6 +24,6 @@ png plot
 
 html2:
 
-\file{plot1}{./test/plotly1.html}
+\file{plot2}{./test/plotly1.html}
 
 \output{./test/t1}

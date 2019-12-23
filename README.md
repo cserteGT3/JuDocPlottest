@@ -1,4 +1,7 @@
 # JuDocPlottest
+
+See online [here](http://csertegt3.github.io/JuDocPlottest).
+
 Test [Judoc.jl's](https://github.com/tlienart/JuDoc.jl) plot generation.
 
 An example based on [discourse comment](https://discourse.julialang.org/t/ann-judoc-jl-a-static-site-generator-in-julia/23693/15) and discussed in [this]() issue.

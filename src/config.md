@@ -4,6 +4,7 @@ website.
 ------------------------------------------------------->
 @def author = "Tamás Cserteg"
 @def prepath = "JuDocPlottest"
+@def hasplotly = false
 
 <!-----------------------------------------------------
 Add here global latex commands to use throughout your

@@ -1,4 +1,4 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>pure JuDoc</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=pure_judoc ><a href="/JuDocPlottest/pub/menu2.html#pure_judoc">Pure JuDoc</a></h2> <h2 id=the_usual_code ><a href="/JuDocPlottest/pub/menu2.html#the_usual_code">The usual code:</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PyPlot, DelimitedFiles, Statistics
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>pure JuDoc</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> <li><a href="/JuDocPlottest/pub/menu8.html">Issue325</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=pure_judoc ><a href="/JuDocPlottest/pub/menu2.html#pure_judoc">Pure JuDoc</a></h2> <h2 id=the_usual_code ><a href="/JuDocPlottest/pub/menu2.html#the_usual_code">The usual code:</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PyPlot, DelimitedFiles, Statistics
 d, h = readdlm(joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"temps.tsv"</span>), '\t', header = <span class=hljs-literal >true</span>)
 figure()
 scatter(d[:,<span class=hljs-number >1</span>],d[:,<span class=hljs-number >2</span>])
@@ -44,12 +44,3 @@ The average is:13.4
 </div>
 
 </div>
-
-    
-        
-
-
-
-    
-    
-    <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script>

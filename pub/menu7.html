@@ -1,4 +1,4 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <script src="/JuDocPlottest/libs/plotly/plotly.min.js"></script> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>Working with PlotyJS</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> <li><a href="/JuDocPlottest/pub/menu8.html">Issue325</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=judoc_plotlyjs ><a href="/JuDocPlottest/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS, DelimitedFiles, Statistics, ORCA
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>Working with PlotyJS</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> <li><a href="/JuDocPlottest/pub/menu8.html">Issue325</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=judoc_plotlyjs ><a href="/JuDocPlottest/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS, DelimitedFiles, Statistics, ORCA
 fp = joinpath(<span class=hljs-string >"assets"</span>, <span class=hljs-string >"temperature"</span>, <span class=hljs-string >"temps.tsv"</span>)
 d, h = readdlm(abspath(fp), '\t', header = <span class=hljs-literal >true</span>)
 sc = scatter(;x=d[:,<span class=hljs-number >1</span>], y=d[:,<span class=hljs-number >2</span>], mode=<span class=hljs-string >"markers"</span>)
@@ -12,25 +12,93 @@ println(<span class=hljs-string >"The average is:"</span>, mean(d[:,<span class=
 <a href="/JuDocPlottest/assets/pages/menu7/test/plotly1.html">plot2</a>
 <pre><code class="plaintext hljs">The average is:13.4
 </code></pre>
-<p>this does not work &#40;<a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579">source: issuecomment</a>&#41;:</p>
+<p>this does not work &#40;<a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579">issuecomment</a>&#41;:</p>
 <pre><code class="html hljs">~~~
 
 ~~~</code></pre>
 
 
 
-<p>Some text here in the &quot;standard&quot; layout then you can inject raw HTML:</p>
-<pre><code class="julia hljs">~~~
-&lt;div class="row"&gt;
-  &lt;div class="container"&gt;
-    &lt;img class="left" src="/JuDocPlottest/assets/infra/rndimg.jpg"&gt;
-    &lt;p&gt; Marine iguanas are truly splendid creatures. &lt;/p&gt;
-    &lt;p&gt; Evolution is cool. &lt;/p&gt;
-    &lt;div style="clear: both"&gt;&lt;/div&gt;      
-  &lt;/div&gt;
-&lt;/div&gt;
-~~~</code></pre>
-<p>and subsequently continue with the standard layout.
+<h2 id=test_with_div ><a href="/JuDocPlottest/pub/menu7.html#test_with_div">Test with div</a></h2>
+<p>See <a href="https://github.com/tlienart/JuDoc.jl/issues/325">issue325</a> for some html code block issues.</p>
+<p>This should work from <a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568882518">here</a> and the example generation from PlotlyJS.jl&#39;s docs:</p>
+<pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS
+trace1 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >10</span>, <span class=hljs-number >15</span>, <span class=hljs-number >13</span>, <span class=hljs-number >17</span>], mode=<span class=hljs-string >"markers"</span>)
+trace2 = scatter(;x=<span class=hljs-number >2</span>:<span class=hljs-number >5</span>, y=[<span class=hljs-number >16</span>, <span class=hljs-number >5</span>, <span class=hljs-number >11</span>, <span class=hljs-number >9</span>], mode=<span class=hljs-string >"lines"</span>)
+trace3 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >12</span>, <span class=hljs-number >9</span>, <span class=hljs-number >15</span>, <span class=hljs-number >12</span>], mode=<span class=hljs-string >"lines+markers"</span>)
+p = plot([trace1, trace2])
+<span class=hljs-comment >#p = plot([trace1, trace2, trace3])</span>
+<span class=hljs-comment >#relayout!(p, margin=attr(t=60, b=60, l=50, r=50))</span>
+println(<span class=hljs-string >"""~~~
+  &lt;div id=test2 style=width:600px;height:250px;&gt;&lt;/div&gt;"""</span>)
+println(PlotlyJS.html_body(p.plot))
+println(<span class=hljs-string >"~~~"</span>)</code></pre>
+
+<div id=test2 style=width:600px;height:250px;></div>
+<script>
+    gd = (function() {
+  var WIDTH_IN_PERCENT_OF_PARENT = 100;
+  var HEIGHT_IN_PERCENT_OF_PARENT = 100;
+  var gd = Plotly.d3.select('body')
+    .append('div').attr("id", "3510d1c8-c49b-4116-ab82-e3057398a077")
+    .style({
+      width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+      'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
+      height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
+      'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 2 + 'vh'
+    })
+    .node();
+  var plot_json = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]}]};
+  var data = plot_json.data;
+  var layout = plot_json.layout;
+  Plotly.newPlot(gd, data, layout);
+  window.onresize = function() {
+    Plotly.Plots.resize(gd);
+  };
+  return gd;
+})();
+
+ </script>
+
+
+<h2 id=another_test_a_bit_more_complicated ><a href="/JuDocPlottest/pub/menu7.html#another_test_a_bit_more_complicated">Another test, a bit more complicated</a></h2>
+<pre><code class="julia hljs"><span class=hljs-keyword >function</span> jdplotly2(plot::<span class=hljs-built_in >String</span>, id::<span class=hljs-built_in >String</span>, style::<span class=hljs-built_in >String</span>=<span class=hljs-string >"width:600px;height:250px;"</span>)
+	println(<span class=hljs-string >"""
+	~~~&lt;div id="<span class=hljs-variable >$id</span>" style="<span class=hljs-variable >$style</span>"&gt;&lt;/div&gt;
+	&lt;script&gt;
+		var fig = JSON.parse('<span class=hljs-variable >$plot</span>');
+		CONTAINER = document.getElementById('<span class=hljs-variable >$id</span>');
+		Plotly.plot(CONTAINER, fig.data, fig.layout);
+	&lt;/script&gt;
+	~~~"""</span>)
+<span class=hljs-keyword >end</span></code></pre>
+<pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS
+
+trace1 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >10</span>, <span class=hljs-number >15</span>, <span class=hljs-number >13</span>, <span class=hljs-number >17</span>], mode=<span class=hljs-string >"markers"</span>)
+trace2 = scatter(;x=<span class=hljs-number >2</span>:<span class=hljs-number >5</span>, y=[<span class=hljs-number >16</span>, <span class=hljs-number >5</span>, <span class=hljs-number >11</span>, <span class=hljs-number >9</span>], mode=<span class=hljs-string >"lines"</span>)
+trace3 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >12</span>, <span class=hljs-number >9</span>, <span class=hljs-number >15</span>, <span class=hljs-number >12</span>], mode=<span class=hljs-string >"lines+markers"</span>)
+p = plot([trace1, trace2, trace3])
+
+jdplotly2(json(p), <span class=hljs-string >"test3"</span>)</code></pre>
+<div id=test3  style="width:600px;height:250px;"></div>
+<script>
+	var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]},{"mode":"lines+markers","y":[12,9,15,12],"type":"scatter","x":[1,2,3,4]}]}');
+	CONTAINER = document.getElementById('test3');
+	Plotly.plot(CONTAINER, fig.data, fig.layout);
+</script>
+
+<h2 id=raw_source ><a href="/JuDocPlottest/pub/menu7.html#raw_source">Raw source</a></h2>
+
+<div id=ee9d7c9d-6faf-488b-aaf9-3ee496ce5954  class=plotly-graph-div ></div>
+
+<script>
+    window.PLOTLYENV=window.PLOTLYENV || {};
+    window.PLOTLYENV.BASE_URL="https://plot.ly";
+    Plotly.newPlot('ee9d7c9d-6faf-488b-aaf9-3ee496ce5954', [{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]},{"mode":"lines+markers","y":[12,9,15,12],"type":"scatter","x":[1,2,3,4]}],
+               {"margin":{"l":50,"b":60,"r":50,"t":60}}, {showLink: false});
+
+ </script>
+ 
 <div class=page-foot >
   <div class=copyright >
     &copy; Tamás Cserteg. Last modified: December 27, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.

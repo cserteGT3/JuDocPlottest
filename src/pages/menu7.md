@@ -30,7 +30,7 @@ html2:
 \output{./test/t1}
 
 
-this does not work ([source: issuecomment](https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579)):
+this does not work ([issuecomment](https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579)):
 
 ```html
 ~~~
@@ -39,22 +39,111 @@ this does not work ([source: issuecomment](https://github.com/tlienart/JuDoc.jl/
 ```
 
 ~~~
-{{insert ../assets/menu7/test/plotly1.html}}
+{{insert ../../assets/menu7/test/plotly1.html}}
 ~~~
 
-Some text here in the "standard" layout then you can inject raw HTML:
+## Test with div
 
+See [issue325](https://github.com/tlienart/JuDoc.jl/issues/325) for some html code block issues.
+
+This should work from [here](https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568882518) and the example generation from PlotlyJS.jl's docs:
+
+
+```julia:./test/t2
+using PlotlyJS
+trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
+trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
+trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+p = plot([trace1, trace2])
+#p = plot([trace1, trace2, trace3])
+#relayout!(p, margin=attr(t=60, b=60, l=50, r=50))
+println("""~~~
+  <div id=test2 style=width:600px;height:250px;></div>""")
+println(PlotlyJS.html_body(p.plot))
+println("~~~")
 ```
-~~~
-<div class="row">
-  <div class="container">
-    <img class="left" src="/assets/infra/rndimg.jpg">
-    <p> Marine iguanas are truly splendid creatures. </p>
-    <p> Evolution is cool. </p>
-    <div style="clear: both"></div>      
-  </div>
-</div>
-~~~
+
+\textoutput{./test/t2}
+
+<!--
+
+trial two, with margins set:
+
+```julia:./test/t3
+using PlotlyJS
+trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
+trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
+trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+p = plot([trace1, trace2, trace3])
+relayout!(p, margin=attr(t=60, b=60, l=50, r=50))
+println("~~~")
+println(PlotlyJS.html_body(p.plot))
+println("~~~")
 ```
 
-and subsequently continue with the standard layout.
+\textoutput{./test/t3}
+
+
+More tests:
+```julia:preplot
+function jdplotly(plot, id::String, style::String="width:600px;height:250px;")
+	println("""
+	~~~<div id="$id" style="$style"></div>\n$plot\n~~~""")
+end
+```
+
+```julia:./test/t4
+using PlotlyJS
+trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
+trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
+trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+p = plot([trace1, trace2, trace3])
+jdplotly(PlotlyJS.html_body(p.plot), "test4")
+```
+
+\textoutput{./test/t4}
+-->
+
+
+## Another test, a bit more complicated
+
+```julia:preplot2
+function jdplotly2(plot::String, id::String, style::String="width:600px;height:250px;")
+	println("""
+	~~~<div id="$id" style="$style"></div>
+	<script>
+		var fig = JSON.parse('$plot');
+		CONTAINER = document.getElementById('$id');
+		Plotly.plot(CONTAINER, fig.data, fig.layout);
+	</script>
+	~~~""")
+end
+```
+
+```julia:plotly2
+using PlotlyJS
+
+trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
+trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
+trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+p = plot([trace1, trace2, trace3])
+
+jdplotly2(json(p), "test3")
+```
+
+\textoutput{plotly2}
+
+
+## Raw source
+
+~~~
+<div id="ee9d7c9d-6faf-488b-aaf9-3ee496ce5954" class="plotly-graph-div"></div>
+
+<script>
+    window.PLOTLYENV=window.PLOTLYENV || {};
+    window.PLOTLYENV.BASE_URL="https://plot.ly";
+    Plotly.newPlot('ee9d7c9d-6faf-488b-aaf9-3ee496ce5954', [{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]},{"mode":"lines+markers","y":[12,9,15,12],"type":"scatter","x":[1,2,3,4]}],
+               {"margin":{"l":50,"b":60,"r":50,"t":60}}, {showLink: false});
+
+ </script>
+ ~~~

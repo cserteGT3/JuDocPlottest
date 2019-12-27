@@ -1,0 +1,7 @@
+~~~<div id="test3" style="width:600px;height:250px;"></div>
+<script>
+	var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]},{"mode":"lines+markers","y":[12,9,15,12],"type":"scatter","x":[1,2,3,4]}]}');
+	CONTAINER = document.getElementById('test3');
+	Plotly.plot(CONTAINER, fig.data, fig.layout);
+</script>
+~~~

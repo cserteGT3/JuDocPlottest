@@ -163,9 +163,9 @@ version = "0.21.0"
 
 [[JuDoc]]
 deps = ["Dates", "DelimitedFiles", "DocStringExtensions", "HTTP", "JuDocTemplates", "Literate", "LiveServer", "Logging", "Markdown", "NodeJS", "OrderedCollections", "Pkg"]
-git-tree-sha1 = "67c8f268d771de9bda6e7b5a08f4dc27684e546c"
+git-tree-sha1 = "7d63d9fe7ca9e973de9abdd06d28a4bf2ab3c00f"
 uuid = "4ca9428c-4c75-11e9-2efb-bf5cb6c1e8f8"
-version = "0.3.10"
+version = "0.4.0"
 
 [[JuDocTemplates]]
 git-tree-sha1 = "4467d55c0e963b6484ea5633fc6948f315cf804c"

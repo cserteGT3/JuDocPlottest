@@ -147,3 +147,40 @@ jdplotly2(json(p), "test3")
 
  </script>
  ~~~
+
+## JuDoc web
+
+```julia:loadjs
+#hideall
+import PlotlyJS, Random
+
+function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
+     	  	  style="width:600px;height:350px;")
+    println("""
+    ~~~
+    <div id="$id" style="$style"></div>
+    <script>
+        var fig = JSON.parse('$(PlotlyJS.json(plt))');
+        CONTAINER = document.getElementById('$id');
+        Plotly.plot(CONTAINER, fig.data, fig.layout);
+    </script>
+    ~~~""")
+end
+```
+
+```julia:ex1
+#hideall
+z =  [10     10.625  12.5  15.625  20
+     5.625  6.25    8.125 11.25   15.625
+     2.5    3.125   5.    8.125   12.5
+     0.625  1.25    3.125 6.25    10.625
+     0      0.625   2.5   5.625   10]
+
+data   = PlotlyJS.contour(; z=z)
+layout = PlotlyJS.Layout(; title="Basic Contour Plot")
+plt    = PlotlyJS.plot(data, layout)
+
+jdplotly(plt)
+```
+
+\textoutput{ex1}

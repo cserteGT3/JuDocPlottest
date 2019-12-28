@@ -5,7 +5,7 @@
   var WIDTH_IN_PERCENT_OF_PARENT = 100;
   var HEIGHT_IN_PERCENT_OF_PARENT = 100;
   var gd = Plotly.d3.select('body')
-    .append('div').attr("id", "3510d1c8-c49b-4116-ab82-e3057398a077")
+    .append('div').attr("id", "79041ef8-e414-4fc9-b92b-97f56124f919")
     .style({
       width: WIDTH_IN_PERCENT_OF_PARENT + '%',
       'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',

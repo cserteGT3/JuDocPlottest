@@ -1,4 +1,2 @@
-assets\temperature\temps.tsv
-C:\Users\Laci\Documents\GIT\JuDocPlottest\assets\temperature\temps.tsv
-C:\Users\Laci\Documents\GIT\JuDocPlottest\assets\pages\menu2\code\temperature\plot_judoc.png
-The average is:13.4
+There was an error running the code:
+UndefVarError(:scatter)

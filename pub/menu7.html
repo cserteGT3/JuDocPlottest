@@ -10,8 +10,8 @@ println("The average is:", mean(d[:,2]))</code></pre> <p>png plot</p> <pre><code
 <img src="/JuDocPlottest/assets/pages/menu7/test/plotly1.png" alt="new plot3">
 <p>html2:</p>
 <a href="/JuDocPlottest/assets/pages/menu7/test/plotly1.html">plot2</a>
-<pre><code class=plaintext >The average is:13.4
-</code></pre>
+<pre><code class=plaintext >There was an error running the code:
+UndefVarError(:scatter)</code></pre>
 <p>this does not work &#40;<a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579">issuecomment</a>&#41;:</p>
 <pre><code class=language-html >~~~
 
@@ -33,60 +33,7 @@ println("""~~~
   <div id=test2 style=width:600px;height:250px;></div>""")
 println(PlotlyJS.html_body(p.plot))
 println("~~~")</code></pre>
-
-<div id=test2 style=width:600px;height:250px;></div>
-<script>
-    gd = (function() {
-  var WIDTH_IN_PERCENT_OF_PARENT = 100;
-  var HEIGHT_IN_PERCENT_OF_PARENT = 100;
-  var gd = Plotly.d3.select('body')
-    .append('div').attr("id", "79041ef8-e414-4fc9-b92b-97f56124f919")
-    .style({
-      width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-      'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
-      height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
-      'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 2 + 'vh'
-    })
-    .node();
-  var plot_json = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]}]};
-  var data = plot_json.data;
-  var layout = plot_json.layout;
-  Plotly.newPlot(gd, data, layout);
-  window.onresize = function() {
-    Plotly.Plots.resize(gd);
-  };
-  return gd;
-})();
-
- </script>
-
-
-<h2 id=another_test_a_bit_more_complicated ><a href="/JuDocPlottest/pub/menu7.html#another_test_a_bit_more_complicated">Another test, a bit more complicated</a></h2>
-<pre><code class=language-julia >function jdplotly2(plot::String, id::String, style::String="width:600px;height:250px;")
-	println("""
-	~~~<div id="$id" style="$style"></div>
-	<script>
-		var fig = JSON.parse('$plot');
-		CONTAINER = document.getElementById('$id');
-		Plotly.plot(CONTAINER, fig.data, fig.layout);
-	</script>
-	~~~""")
-end</code></pre>
-<pre><code class=language-julia >using PlotlyJS
-
-trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
-trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
-trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
-p = plot([trace1, trace2, trace3])
-
-jdplotly2(json(p), "test3")</code></pre>
-<div id=test3  style="width:600px;height:250px;"></div>
-<script>
-	var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[10,15,13,17],"type":"scatter","x":[1,2,3,4]},{"mode":"lines","y":[16,5,11,9],"type":"scatter","x":[2,3,4,5]},{"mode":"lines+markers","y":[12,9,15,12],"type":"scatter","x":[1,2,3,4]}]}');
-	CONTAINER = document.getElementById('test3');
-	Plotly.plot(CONTAINER, fig.data, fig.layout);
-</script>
-
+There was an error running the code: UndefVarError&#40;:scatter&#41;
 <h2 id=raw_source ><a href="/JuDocPlottest/pub/menu7.html#raw_source">Raw source</a></h2>
 
 <div id=ee9d7c9d-6faf-488b-aaf9-3ee496ce5954  class=plotly-graph-div ></div>
@@ -103,13 +50,31 @@ jdplotly2(json(p), "test3")</code></pre>
 
 
 
-<div id=jdpezg  style="width:600px;height:350px;"></div>
+<div id=jdpodu  style="width:600px;height:350px;"></div>
 <script>
     var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]}');
-    CONTAINER = document.getElementById('jdpezg');
+    CONTAINER = document.getElementById('jdpodu');
     Plotly.plot(CONTAINER, fig.data, fig.layout);
 </script>
 
+<h2 id=another_try ><a href="/JuDocPlottest/pub/menu7.html#another_try">Another try</a></h2>
+<pre><code class=language-julia >using PlotlyJS
+
+x = y = [-2*pi + 4*pi*i/100 for i in 1:100]
+z = [sin(x[i]) * cos(y[j]) * sin(x[i]*x[i]+y[j]*y[j])/log(x[i]*x[i]+y[j]*y[j]+1)
+     for i in 1:100 for j in 1:100]
+z_ = [z[i:i+99] for i in 1:100:10000]
+
+data = PlotlyJS.contour(;z=z_, x=x, y=y)
+
+plt = PlotlyJS.plot(data)
+att = attr(;t=60, b=60, l=50, r=50)
+#relayout!(plt, margin=attr(t=60, b=60, l=50, r=50))
+html_block = PlotlyJS.html_body(plt.plot);
+println("\n\n\n~~~")
+println("$html_block")
+println("~~~\n\n\n")</code></pre>
+There was an error running the code: ErrorException&#40;&quot;function attr does not accept keyword arguments&quot;&#41;
 <div class=page-foot >
   <div class=copyright >
     &copy; Tamás Cserteg. Last modified: December 28, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.

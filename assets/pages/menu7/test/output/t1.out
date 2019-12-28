@@ -1,1 +1,2 @@
-The average is:13.4
+There was an error running the code:
+UndefVarError(:scatter)

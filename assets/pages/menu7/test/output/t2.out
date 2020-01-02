@@ -1,2 +1,32 @@
-There was an error running the code:
-UndefVarError(:scatter)
+<html>
+<head>
+     <script src="C:\Users\cstamas\.julia\packages\PlotlyJS\b9Efu\assets\plotly-latest.min.js"></script>
+</head>
+<body>
+     <script>
+    gd = (function() {
+  var WIDTH_IN_PERCENT_OF_PARENT = 100;
+  var HEIGHT_IN_PERCENT_OF_PARENT = 100;
+  var gd = Plotly.d3.select('body')
+    .append('div').attr("id", "d03f3b05-7617-4e2d-af3a-1ca71c6c05fd")
+    .style({
+      width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+      'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
+      height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
+      'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 2 + 'vh'
+    })
+    .node();
+  var plot_json = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60}},"data":[{"mode":"markers","y":[15.0,16.0,15.0,16.0,5.0],"type":"scatter","x":[1.0,2.0,3.0,4.0,5.0]}]};
+  var data = plot_json.data;
+  var layout = plot_json.layout;
+  Plotly.newPlot(gd, data, layout);
+  window.onresize = function() {
+    Plotly.Plots.resize(gd);
+  };
+  return gd;
+})();
+
+ </script>
+
+</body>
+</html>

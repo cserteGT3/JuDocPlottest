@@ -4,14 +4,15 @@
 ## Judoc × PlotlyJS
 
 ```julia:./test/t1
-using PlotlyJS, DelimitedFiles, Statistics, ORCA
+import PlotlyJS, ORCA
+using DelimitedFiles, Statistics
 fp = joinpath("assets", "temperature", "temps.tsv")
 d, h = readdlm(abspath(fp), '\t', header = true)
-sc = scatter(;x=d[:,1], y=d[:,2], mode="markers")
-p = plot(sc)
-savefig(p, joinpath(@__DIR__, "plotly2.html"), format="html")
-savefig(p, joinpath(@__DIR__, "plotly1.png"), format="png")
-savefig(p, joinpath(@__DIR__, "output", "t2.out"), format="html")
+sc = PlotlyJS.scatter(;x=d[:,1], y=d[:,2], mode="markers")
+p = PlotlyJS.plot(sc)
+PlotlyJS.savefig(p, joinpath(@__DIR__, "plotly2.html"), format="html")
+PlotlyJS.savefig(p, joinpath(@__DIR__, "plotly1.png"), format="png")
+PlotlyJS.savefig(p, joinpath(@__DIR__, "output", "t2.out"), format="html")
 println("The average is:", mean(d[:,2]))
 ```
 
@@ -42,6 +43,9 @@ this does not work ([issuecomment](https://github.com/tlienart/JuDoc.jl/issues/3
 {{insert ../../assets/menu7/test/plotly1.html}}
 ~~~
 
+<!--
+
+
 ## Test with div
 
 See [issue325](https://github.com/tlienart/JuDoc.jl/issues/325) for some html code block issues.
@@ -50,11 +54,11 @@ This should work from [here](https://github.com/tlienart/JuDoc.jl/issues/322#iss
 
 
 ```julia:./test/t2
-using PlotlyJS
-trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
-trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
-trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
-p = plot([trace1, trace2])
+import PlotlyJS
+trace1 = PlotlyJS.scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
+trace2 = PlotlyJS.scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
+trace3 = PlotlyJS.scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+p = PlotlyJS.plot([trace1, trace2])
 #p = plot([trace1, trace2, trace3])
 #relayout!(p, margin=attr(t=60, b=60, l=50, r=50))
 println("""~~~
@@ -65,12 +69,11 @@ println("~~~")
 
 \textoutput{./test/t2}
 
-<!--
 
 trial two, with margins set:
 
 ```julia:./test/t3
-using PlotlyJS
+import PlotlyJS
 trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
 trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
 trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
@@ -93,7 +96,7 @@ end
 ```
 
 ```julia:./test/t4
-using PlotlyJS
+import PlotlyJS
 trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
 trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
 trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
@@ -120,7 +123,7 @@ end
 ```
 
 ```julia:plotly2
-using PlotlyJS
+import PlotlyJS
 
 trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
 trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
@@ -188,7 +191,7 @@ jdplotly(plt)
 ## Another try
 
 ```julia:ex2
-using PlotlyJS
+import PlotlyJS
 
 x = y = [-2*pi + 4*pi*i/100 for i in 1:100]
 z = [sin(x[i]) * cos(y[j]) * sin(x[i]*x[i]+y[j]*y[j])/log(x[i]*x[i]+y[j]*y[j]+1)
@@ -198,10 +201,10 @@ z_ = [z[i:i+99] for i in 1:100:10000]
 data = PlotlyJS.contour(;z=z_, x=x, y=y)
 
 plt = PlotlyJS.plot(data)
-att = attr(;t=60, b=40, l=50, r=50)
-#relayout!(plt, margin=attr(t=60, b=60, l=50, r=50))
+PlotlyJS.relayout!(plt, margin=PlotlyJS.attr(t=60, b=60, l=50, r=50))
 html_block = PlotlyJS.html_body(plt.plot);
-println("\n\n\n~~~")
+println("\n~~~")
+println("""<div id="5578125e-fbe3-4b94-8735-4c014bbe94a3" class="plotly-graph-div"></div>""")
 println("$html_block")
 println("~~~\n\n\n")
 ```

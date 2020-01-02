@@ -198,7 +198,7 @@ z_ = [z[i:i+99] for i in 1:100:10000]
 data = PlotlyJS.contour(;z=z_, x=x, y=y)
 
 plt = PlotlyJS.plot(data)
-att = attr(;t=60, b=60, l=50, r=50)
+att = attr(;t=60, b=40, l=50, r=50)
 #relayout!(plt, margin=attr(t=60, b=60, l=50, r=50))
 html_block = PlotlyJS.html_body(plt.plot);
 println("\n\n\n~~~")

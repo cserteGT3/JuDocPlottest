@@ -1,19 +1,19 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>Working with PlotyJS</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> <li><a href="/JuDocPlottest/pub/menu8.html">Issue325</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=judoc_plotlyjs ><a href="/JuDocPlottest/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2> <pre><code class=language-julia >using PlotlyJS, DelimitedFiles, Statistics, ORCA
-fp = joinpath("assets", "temperature", "temps.tsv")
-d, h = readdlm(abspath(fp), '\t', header = true)
-sc = scatter(;x=d[:,1], y=d[:,2], mode="markers")
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocPlottest/libs/katex/katex.min.css"> <script src="/JuDocPlottest/libs/plotlyjs/plotly-latest.min.js"></script> <link rel=stylesheet  href="/JuDocPlottest/css/judoc.css"> <link rel=stylesheet  href="/JuDocPlottest/css/basic.css"> <link rel=icon  href="/JuDocPlottest/assets/infra/favicon.png"> <title>Working with PlotyJS</title> <header> <div class=blog-name ><a href="">Basic Template</a></div> <nav> <ul> <li><a href="/JuDocPlottest/">Discourse thread</a> <li><a href="/JuDocPlottest/pub/menu2.html">pure JuDoc</a> <li><a href="/JuDocPlottest/pub/menu3.html">Literate</a> <li><a href="/JuDocPlottest/pub/menu4.html">Weave</a> <li><a href="/JuDocPlottest/pub/menu5.html">Weave2</a> <li><a href="/JuDocPlottest/pub/menu6.html">Weave3</a> <li><a href="/JuDocPlottest/pub/menu7.html">PlotlyJS</a> <li><a href="/JuDocPlottest/pub/menu8.html">Issue325</a> <li><a href="/JuDocPlottest/pub/menu9.html">Issue334</a> </ul> <img src="/JuDocPlottest/assets/infra/hamburger.svg" id=menu-icon > </nav> </header> <div class=jd-content > <h2 id=judoc_plotlyjs ><a href="/JuDocPlottest/pub/menu7.html#judoc_plotlyjs">Judoc × PlotlyJS</a></h2> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS, DelimitedFiles, Statistics, ORCA
+fp = joinpath(<span class=hljs-string >"assets"</span>, <span class=hljs-string >"temperature"</span>, <span class=hljs-string >"temps.tsv"</span>)
+d, h = readdlm(abspath(fp), '\t', header = <span class=hljs-literal >true</span>)
+sc = scatter(;x=d[:,<span class=hljs-number >1</span>], y=d[:,<span class=hljs-number >2</span>], mode=<span class=hljs-string >"markers"</span>)
 p = plot(sc)
-savefig(p, joinpath(@__DIR__, "plotly2.html"), format="html")
-savefig(p, joinpath(@__DIR__, "plotly1.png"), format="png")
-savefig(p, joinpath(@__DIR__, "output", "t2.out"), format="html")
-println("The average is:", mean(d[:,2]))</code></pre> <p>png plot</p> <pre><code class=language-julia >\figalt{new plot3}{./test/plotly1.png}</code></pre>
+savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"plotly2.html"</span>), format=<span class=hljs-string >"html"</span>)
+savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"plotly1.png"</span>), format=<span class=hljs-string >"png"</span>)
+savefig(p, joinpath(<span class=hljs-meta >@__DIR__</span>, <span class=hljs-string >"output"</span>, <span class=hljs-string >"t2.out"</span>), format=<span class=hljs-string >"html"</span>)
+println(<span class=hljs-string >"The average is:"</span>, mean(d[:,<span class=hljs-number >2</span>]))</code></pre> <p>png plot</p> <pre><code class="julia hljs">\figalt{new plot3}{./test/plotly1.png}</code></pre>
 <img src="/JuDocPlottest/assets/pages/menu7/test/plotly1.png" alt="new plot3">
 <p>html2:</p>
 <a href="/JuDocPlottest/assets/pages/menu7/test/plotly1.html">plot2</a>
-<pre><code class=plaintext >There was an error running the code:
+<pre><code class="plaintext hljs">There was an error running the code:
 UndefVarError(:scatter)</code></pre>
 <p>this does not work &#40;<a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568879579">issuecomment</a>&#41;:</p>
-<pre><code class=language-html >~~~
+<pre><code class="html hljs">~~~
 
 ~~~</code></pre>
 
@@ -22,17 +22,17 @@ UndefVarError(:scatter)</code></pre>
 <h2 id=test_with_div ><a href="/JuDocPlottest/pub/menu7.html#test_with_div">Test with div</a></h2>
 <p>See <a href="https://github.com/tlienart/JuDoc.jl/issues/325">issue325</a> for some html code block issues.</p>
 <p>This should work from <a href="https://github.com/tlienart/JuDoc.jl/issues/322#issuecomment-568882518">here</a> and the example generation from PlotlyJS.jl&#39;s docs:</p>
-<pre><code class=language-julia >using PlotlyJS
-trace1 = scatter(;x=1:4, y=[10, 15, 13, 17], mode="markers")
-trace2 = scatter(;x=2:5, y=[16, 5, 11, 9], mode="lines")
-trace3 = scatter(;x=1:4, y=[12, 9, 15, 12], mode="lines+markers")
+<pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS
+trace1 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >10</span>, <span class=hljs-number >15</span>, <span class=hljs-number >13</span>, <span class=hljs-number >17</span>], mode=<span class=hljs-string >"markers"</span>)
+trace2 = scatter(;x=<span class=hljs-number >2</span>:<span class=hljs-number >5</span>, y=[<span class=hljs-number >16</span>, <span class=hljs-number >5</span>, <span class=hljs-number >11</span>, <span class=hljs-number >9</span>], mode=<span class=hljs-string >"lines"</span>)
+trace3 = scatter(;x=<span class=hljs-number >1</span>:<span class=hljs-number >4</span>, y=[<span class=hljs-number >12</span>, <span class=hljs-number >9</span>, <span class=hljs-number >15</span>, <span class=hljs-number >12</span>], mode=<span class=hljs-string >"lines+markers"</span>)
 p = plot([trace1, trace2])
-#p = plot([trace1, trace2, trace3])
-#relayout!(p, margin=attr(t=60, b=60, l=50, r=50))
-println("""~~~
-  <div id=test2 style=width:600px;height:250px;></div>""")
+<span class=hljs-comment >#p = plot([trace1, trace2, trace3])</span>
+<span class=hljs-comment >#relayout!(p, margin=attr(t=60, b=60, l=50, r=50))</span>
+println(<span class=hljs-string >"""~~~
+  &lt;div id=test2 style=width:600px;height:250px;&gt;&lt;/div&gt;"""</span>)
 println(PlotlyJS.html_body(p.plot))
-println("~~~")</code></pre>
+println(<span class=hljs-string >"~~~"</span>)</code></pre>
 There was an error running the code: UndefVarError&#40;:scatter&#41;
 <h2 id=raw_source ><a href="/JuDocPlottest/pub/menu7.html#raw_source">Raw source</a></h2>
 
@@ -58,32 +58,27 @@ There was an error running the code: UndefVarError&#40;:scatter&#41;
 </script>
 
 <h2 id=another_try ><a href="/JuDocPlottest/pub/menu7.html#another_try">Another try</a></h2>
-<pre><code class=language-julia >using PlotlyJS
+<pre><code class="julia hljs"><span class=hljs-keyword >using</span> PlotlyJS
 
-x = y = [-2*pi + 4*pi*i/100 for i in 1:100]
-z = [sin(x[i]) * cos(y[j]) * sin(x[i]*x[i]+y[j]*y[j])/log(x[i]*x[i]+y[j]*y[j]+1)
-     for i in 1:100 for j in 1:100]
-z_ = [z[i:i+99] for i in 1:100:10000]
+x = y = [-<span class=hljs-number >2</span>*<span class=hljs-literal >pi</span> + <span class=hljs-number >4</span>*<span class=hljs-literal >pi</span>*i/<span class=hljs-number >100</span> <span class=hljs-keyword >for</span> i <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:<span class=hljs-number >100</span>]
+z = [sin(x[i]) * cos(y[j]) * sin(x[i]*x[i]+y[j]*y[j])/log(x[i]*x[i]+y[j]*y[j]+<span class=hljs-number >1</span>)
+     <span class=hljs-keyword >for</span> i <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:<span class=hljs-number >100</span> <span class=hljs-keyword >for</span> j <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:<span class=hljs-number >100</span>]
+z_ = [z[i:i+<span class=hljs-number >99</span>] <span class=hljs-keyword >for</span> i <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:<span class=hljs-number >100</span>:<span class=hljs-number >10000</span>]
 
 data = PlotlyJS.contour(;z=z_, x=x, y=y)
 
 plt = PlotlyJS.plot(data)
-att = attr(;t=60, b=60, l=50, r=50)
-#relayout!(plt, margin=attr(t=60, b=60, l=50, r=50))
+att = attr(;t=<span class=hljs-number >60</span>, b=<span class=hljs-number >60</span>, l=<span class=hljs-number >50</span>, r=<span class=hljs-number >50</span>)
+<span class=hljs-comment >#relayout!(plt, margin=attr(t=60, b=60, l=50, r=50))</span>
 html_block = PlotlyJS.html_body(plt.plot);
-println("\n\n\n~~~")
-println("$html_block")
-println("~~~\n\n\n")</code></pre>
+println(<span class=hljs-string >"\n\n\n~~~"</span>)
+println(<span class=hljs-string >"<span class=hljs-variable >$html_block</span>"</span>)
+println(<span class=hljs-string >"~~~\n\n\n"</span>)</code></pre>
 There was an error running the code: ErrorException&#40;&quot;function attr does not accept keyword arguments&quot;&#41;
 <div class=page-foot >
   <div class=copyright >
-    &copy; Tamás Cserteg. Last modified: December 28, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+    &copy; Tamás Cserteg. Last modified: January 02, 2020. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
   </div>
 </div>
 
 </div>
-
-    
-        <script src="/JuDocPlottest/libs/katex/katex.min.js"></script>
-<script src="/JuDocPlottest/libs/katex/auto-render.min.js"></script>
-<script>renderMathInElement(document.body)</script>
